@@ -22,10 +22,16 @@ import androidx.lifecycle.ViewModelProvider
  * Convenience factory to handle ViewModels with one parameter.
  *
  * Make a factory:
+ * ```
+ * // Make a factory
  * val FACTORY = viewModelFactory(::MyViewModel)
+ * ```
  *
  * Use the generated factory:
+ * ```
  * ViewModelProviders.of(this, FACTORY(argument))
+ *
+ * ```
  *
  * @param constructor A function (A) -> T that returns an instance of the ViewModel (typically pass
  * the constructor)

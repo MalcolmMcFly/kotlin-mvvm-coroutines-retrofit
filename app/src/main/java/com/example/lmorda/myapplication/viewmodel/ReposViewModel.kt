@@ -15,7 +15,6 @@
  */
 package com.example.lmorda.myapplication.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,23 +34,16 @@ class ReposViewModel(private val reposRepository: ReposRepository) : ViewModel()
     }
 
     /**
-     * Fetch repos from remote data source only when the fragment is created
-     */
-    init {
-        refreshRepos()
-    }
-
-    /**
      * Request a snackbar to display a string.
      */
-    private val _snackBar = MutableLiveData<String>()
+    private var _snackBar: MutableLiveData<String>
     val snackbar: LiveData<String>
         get() = _snackBar
 
     /**
      * Show a loading spinner if true
      */
-    private val _spinner = MutableLiveData<Boolean>()
+    private var _spinner: MutableLiveData<Boolean>
     val spinner: LiveData<Boolean>
         get() = _spinner
 
@@ -59,6 +51,16 @@ class ReposViewModel(private val reposRepository: ReposRepository) : ViewModel()
      * Update repos via this livedata
      */
     val repos = reposRepository.repos
+
+    /**
+     * Fetch repos from remote data source only when the fragment is created
+     */
+    init {
+        // TODO: Why does this have to go in constructor for unit test to run?
+        _snackBar = MutableLiveData()
+        _spinner = MutableLiveData()
+        refreshRepos()
+    }
 
     /**
      * Called immediately after the UI shows the snackbar.
