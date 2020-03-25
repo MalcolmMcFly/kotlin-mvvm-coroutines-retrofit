@@ -7,6 +7,4 @@ interface RemoteDataSource {
 
     suspend fun getRepos(): Result<List<Repo>>
 
-
-
 }

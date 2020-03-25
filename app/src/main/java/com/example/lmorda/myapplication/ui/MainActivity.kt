@@ -12,10 +12,9 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        val countriesFragment = ReposFragment.newInstance()
-        fragmentTransaction.add(R.id.contentFrame, countriesFragment)
+        val countriesFragment = ReposFragment()
+        fragmentTransaction.replace(R.id.contentFrame, countriesFragment)
         fragmentTransaction.commit()
-
     }
 
 }

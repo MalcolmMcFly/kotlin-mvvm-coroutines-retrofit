@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -61,6 +58,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.core:core-ktx:$rootProject.coreKtx"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentKtx"
 
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutineVersion"
@@ -70,15 +69,6 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.retrofitCoroutinesVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpLoggingVersion"
-
-    // Unit Testing
-    testImplementation "androidx.arch.core:core-testing:$rootProject.ext.archCoreTestingVersion"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.coroutineVersion"
-    androidTestImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test:runner:$rootProject.ext.androidxTestVersion"
-    androidTestImplementation "androidx.test:rules:$rootProject.ext.androidxTestVersion"
-    androidTestImplementation "com.google.truth:truth:$rootProject.ext.truthVersion"
-    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.ext.archCoreTestingVersion"
 
     // Espresso Testing
     androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"

@@ -18,14 +18,14 @@ interface GithubApiService {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
             val client: OkHttpClient = OkHttpClient.Builder()
-                    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-                    .build()
+                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .build()
             val retrofit = Retrofit.Builder()
-                    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                    .baseUrl("https://api.github.com/")
-                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
+                .baseUrl("https://api.github.com/")
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
             return retrofit.create(GithubApiService::class.java)
         }

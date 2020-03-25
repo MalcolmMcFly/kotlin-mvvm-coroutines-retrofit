@@ -1,10 +1,9 @@
-@file:Suppress("unused")
-
 package com.example.lmorda.myapplication.repository
 
-sealed class Result<out T : Any> {
+sealed class Result<out T : Any?> {
 
-    class Success<out T : Any>(val data: T) : Result<T>()
+    class Success<out T : Any?>(val data: T) : Result<T>()
 
     class Error(val exception: Throwable) : Result<Nothing>()
+
 }

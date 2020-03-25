@@ -8,4 +8,5 @@ object Injection {
     fun provideReposRepository(): ReposRepository {
         return ReposRepository.getInstance(ReposRemoteDataSource.newInstance())
     }
+
 }
